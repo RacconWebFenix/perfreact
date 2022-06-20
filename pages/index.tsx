@@ -5,6 +5,8 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
 
+  
+
   async function handleSearch(event: FormEvent) {
     event.preventDefault();
 
