@@ -7,9 +7,10 @@ interface SearchResultsProps {
     price: number;
     title: string;
   }>;
+  onAddToWishList: (id: number) => void;
 }
 
-export function SearchResults({ results }: SearchResultsProps) {
+export function SearchResults({ results, onAddToWishList}: SearchResultsProps) {
   const totalPrice = useMemo(() => {
     return results.reduce((total, product) => {
       return total + product.price;
@@ -21,7 +22,7 @@ export function SearchResults({ results }: SearchResultsProps) {
       <h2>Total: {totalPrice}</h2>
 
       {results.map((p) => {
-        return <ProductItem product={p} key={p.id} />;
+        return <ProductItem product={p} key={p.id} onAddToWishList={onAddToWishList}/>;
       })}
     </div>
   );
@@ -30,5 +31,4 @@ export function SearchResults({ results }: SearchResultsProps) {
 /* useMemo
 1. Calculos pesados
 2. Igualdade referencial (quando passa uma informação a um componente filho)
-
 */
