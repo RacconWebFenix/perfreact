@@ -23,6 +23,8 @@ export const ProductItem = memo(
   }
 );
 
+ProductItem.displayName = "ProductItem";
+
 /*
 Onde irei utilizar o memo?
 
